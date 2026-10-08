@@ -1,0 +1,6 @@
+{
+  "name": "SIZZLE & SMOKE - Fast Food & Grill",
+  "description": "Showcase website for SIZZLE & SMOKE artisanal fast-food restaurant with bilingual English/Arabic interface, interactive menu, table reservation, and customer reviews.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
