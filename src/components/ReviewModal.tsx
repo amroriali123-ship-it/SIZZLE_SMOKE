@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { CustomerReview } from '../types';
 import { MENU_ITEMS } from '../data/mockData';
 import { useLanguage } from '../context/LanguageContext';
-import { X, Star, Sparkles, CheckCircle2 } from 'lucide-react';
+import { X, Star } from 'lucide-react';
 
 interface ReviewModalProps {
   isOpen: boolean;
@@ -11,7 +11,7 @@ interface ReviewModalProps {
 }
 
 export const ReviewModal: React.FC<ReviewModalProps> = ({ isOpen, onClose, onSubmitReview }) => {
-  const { language, t, isRtl } = useLanguage();
+  const { language, t } = useLanguage();
 
   const [authorName, setAuthorName] = useState('');
   const [overallRating, setOverallRating] = useState(5);
@@ -62,18 +62,18 @@ export const ReviewModal: React.FC<ReviewModalProps> = ({ isOpen, onClose, onSub
     label: string;
   }) => (
     <div className="flex items-center justify-between py-1">
-      <span className="text-xs text-stone-300 font-medium">{label}</span>
+      <span className="text-xs text-stone-700 font-medium">{label}</span>
       <div className="flex items-center gap-1">
         {[1, 2, 3, 4, 5].map((star) => (
           <button
             key={star}
             type="button"
             onClick={() => onChange(star)}
-            className="p-1 text-stone-600 hover:text-amber-400 transition-colors cursor-pointer"
+            className="p-1 text-stone-300 hover:text-amber-500 transition-colors cursor-pointer"
           >
             <Star
               className={`w-4 h-4 ${
-                star <= value ? 'text-amber-400 fill-amber-400' : 'text-stone-700'
+                star <= value ? 'text-amber-500 fill-amber-500' : 'text-stone-300'
               }`}
             />
           </button>
@@ -83,25 +83,25 @@ export const ReviewModal: React.FC<ReviewModalProps> = ({ isOpen, onClose, onSub
   );
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-950/80 backdrop-blur-sm animate-fade-in">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/50 backdrop-blur-sm animate-fade-in">
       <div
-        className="relative w-full max-w-lg bg-stone-900 border border-stone-800 rounded-3xl p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto"
+        className="relative w-full max-w-lg bg-white border border-stone-200 rounded-3xl p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
           type="button"
-          className="absolute top-4 right-4 rtl:right-auto rtl:left-4 p-2 rounded-full bg-stone-950 hover:bg-stone-800 text-stone-400 hover:text-white transition-colors cursor-pointer"
+          className="absolute top-4 right-4 rtl:right-auto rtl:left-4 p-2 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-600 hover:text-stone-900 transition-colors cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
 
         <div className="mb-6">
-          <span className="text-xs font-bold tracking-widest text-amber-500 uppercase block mb-1">
+          <span className="text-xs font-bold tracking-widest text-amber-600 uppercase block mb-1">
             {t.reviews.subtitle}
           </span>
-          <h3 className="text-2xl font-black text-stone-100 font-display">
+          <h3 className="text-2xl font-black text-stone-900 font-display">
             {t.reviews.modalTitle}
           </h3>
         </div>
@@ -109,7 +109,7 @@ export const ReviewModal: React.FC<ReviewModalProps> = ({ isOpen, onClose, onSub
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Author Name */}
           <div>
-            <label className="text-xs font-bold text-stone-400 block mb-1">
+            <label className="text-xs font-bold text-stone-600 block mb-1">
               {t.reviews.nameLabel}
             </label>
             <input
@@ -117,13 +117,13 @@ export const ReviewModal: React.FC<ReviewModalProps> = ({ isOpen, onClose, onSub
               value={authorName}
               onChange={(e) => setAuthorName(e.target.value)}
               placeholder={t.reviews.namePlaceholder}
-              className="w-full px-3.5 py-2.5 bg-stone-950 border border-stone-800 rounded-xl text-xs text-stone-200 focus:outline-none focus:border-amber-500"
+              className="w-full px-3.5 py-2.5 bg-stone-50 border border-stone-200 rounded-xl text-xs text-stone-800 focus:outline-none focus:border-amber-500 shadow-xs"
               required
             />
           </div>
 
           {/* Overall Stars */}
-          <div className="p-3 bg-stone-950/70 border border-stone-800/80 rounded-xl">
+          <div className="p-3 bg-stone-50 border border-stone-200 rounded-xl">
             <StarRatingPicker
               label={t.reviews.overallStarLabel}
               value={overallRating}
@@ -132,7 +132,7 @@ export const ReviewModal: React.FC<ReviewModalProps> = ({ isOpen, onClose, onSub
           </div>
 
           {/* Sub Criteria */}
-          <div className="p-3 bg-stone-950/40 border border-stone-800/60 rounded-xl space-y-1">
+          <div className="p-3 bg-stone-50 border border-stone-200 rounded-xl space-y-1">
             <StarRatingPicker
               label={t.reviews.rateFood}
               value={foodRating}
@@ -152,13 +152,13 @@ export const ReviewModal: React.FC<ReviewModalProps> = ({ isOpen, onClose, onSub
 
           {/* Favorite Dish Selector */}
           <div>
-            <label className="text-xs font-bold text-stone-400 block mb-1">
+            <label className="text-xs font-bold text-stone-600 block mb-1">
               {t.reviews.favoriteDishLabel}
             </label>
             <select
               value={favoriteItemId}
               onChange={(e) => setFavoriteItemId(e.target.value)}
-              className="w-full px-3.5 py-2.5 bg-stone-950 border border-stone-800 rounded-xl text-xs text-stone-200 focus:outline-none focus:border-amber-500"
+              className="w-full px-3.5 py-2.5 bg-stone-50 border border-stone-200 rounded-xl text-xs text-stone-800 focus:outline-none focus:border-amber-500 shadow-xs"
             >
               {MENU_ITEMS.map((item) => (
                 <option key={item.id} value={item.id}>
@@ -170,7 +170,7 @@ export const ReviewModal: React.FC<ReviewModalProps> = ({ isOpen, onClose, onSub
 
           {/* Written Feedback */}
           <div>
-            <label className="text-xs font-bold text-stone-400 block mb-1">
+            <label className="text-xs font-bold text-stone-600 block mb-1">
               {t.reviews.reviewCommentLabel}
             </label>
             <textarea
@@ -178,19 +178,19 @@ export const ReviewModal: React.FC<ReviewModalProps> = ({ isOpen, onClose, onSub
               value={comment}
               onChange={(e) => setComment(e.target.value)}
               placeholder={t.reviews.reviewCommentPlaceholder}
-              className="w-full px-3.5 py-2.5 bg-stone-950 border border-stone-800 rounded-xl text-xs text-stone-200 focus:outline-none focus:border-amber-500 resize-none"
+              className="w-full px-3.5 py-2.5 bg-stone-50 border border-stone-200 rounded-xl text-xs text-stone-800 focus:outline-none focus:border-amber-500 resize-none shadow-xs"
               required
             />
           </div>
 
           {error && (
-            <p className="text-xs text-red-400">{error}</p>
+            <p className="text-xs text-red-600">{error}</p>
           )}
 
           {/* Submit */}
           <button
             type="submit"
-            className="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-stone-950 font-bold text-xs uppercase tracking-wider transition-all cursor-pointer shadow-lg shadow-amber-500/20"
+            className="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md shadow-amber-500/20"
           >
             {t.reviews.submitReview}
           </button>

@@ -1,0 +1,2 @@
+-- Alias reference to /data base/schema.sql
+-- Please see /data base/schema.sql for the complete SQL schema.

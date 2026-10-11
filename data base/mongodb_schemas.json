@@ -1,0 +1,89 @@
+{
+  "$comment": "MongoDB Collection JSON Schema Validation Definitions for SIZZLE & SMOKE",
+  "collections": {
+    "admin_users": {
+      "validator": {
+        "$jsonSchema": {
+          "bsonType": "object",
+          "required": ["username", "email", "passwordHash"],
+          "properties": {
+            "username": {
+              "bsonType": "string",
+              "description": "Unique username for admin"
+            },
+            "email": {
+              "bsonType": "string",
+              "pattern": "^.+@.+$",
+              "description": "Valid email address is required"
+            },
+            "passwordHash": {
+              "bsonType": "string",
+              "description": "Bcrypt hashed password string"
+            },
+            "createdAt": {
+              "bsonType": "date",
+              "description": "Creation timestamp"
+            }
+          }
+        }
+      }
+    },
+    "categories": {
+      "validator": {
+        "$jsonSchema": {
+          "bsonType": "object",
+          "required": ["name_en", "name_ar"],
+          "properties": {
+            "name_en": { "bsonType": "string" },
+            "name_ar": { "bsonType": "string" },
+            "sortOrder": { "bsonType": "int" }
+          }
+        }
+      }
+    },
+    "menu_items": {
+      "validator": {
+        "$jsonSchema": {
+          "bsonType": "object",
+          "required": ["name_en", "name_ar", "price_sar", "category"],
+          "properties": {
+            "name_en": { "bsonType": "string" },
+            "name_ar": { "bsonType": "string" },
+            "description_en": { "bsonType": "string" },
+            "description_ar": { "bsonType": "string" },
+            "price_sar": { "bsonType": ["double", "int", "decimal"] },
+            "price_usd": { "bsonType": ["double", "int", "decimal"] },
+            "category": { "bsonType": "string" },
+            "imageUrl": { "bsonType": "string" },
+            "ingredients_en": { "bsonType": "array", "items": { "bsonType": "string" } },
+            "ingredients_ar": { "bsonType": "array", "items": { "bsonType": "string" } },
+            "isAvailable": { "bsonType": "bool" },
+            "isFeatured": { "bsonType": "bool" },
+            "calories": { "bsonType": "int" },
+            "prepTime": { "bsonType": "string" },
+            "spiceLevel": { "bsonType": "int", "minimum": 0, "maximum": 3 },
+            "createdAt": { "bsonType": "date" },
+            "updatedAt": { "bsonType": "date" }
+          }
+        }
+      }
+    },
+    "site_settings": {
+      "validator": {
+        "$jsonSchema": {
+          "bsonType": "object",
+          "required": ["phone", "email", "address_en", "address_ar"],
+          "properties": {
+            "phone": { "bsonType": "string" },
+            "email": { "bsonType": "string" },
+            "address_en": { "bsonType": "string" },
+            "address_ar": { "bsonType": "string" },
+            "openingHours_en": { "bsonType": "string" },
+            "openingHours_ar": { "bsonType": "string" },
+            "socialLinks": { "bsonType": "object" }
+          }
+        }
+      }
+    }
+  }
+}

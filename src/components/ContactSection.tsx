@@ -29,18 +29,18 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-stone-900/60 border-t border-stone-800 relative">
+    <section id="contact" className="py-24 bg-stone-50 border-t border-stone-200 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="max-w-3xl mb-12">
-          <span className="text-xs font-bold tracking-widest text-amber-500 uppercase block mb-2">
+          <span className="text-xs font-bold tracking-widest text-amber-600 uppercase block mb-2">
             {t.contact.subtitle}
           </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-stone-100 font-display tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-black text-stone-900 font-display tracking-tight">
             {t.contact.title}
           </h2>
-          <p className="text-sm text-stone-400 mt-2">
+          <p className="text-sm text-stone-600 mt-2">
             {t.contact.description}
           </p>
         </div>
@@ -51,15 +51,15 @@ export const ContactSection: React.FC = () => {
           <div className="lg:col-span-5 space-y-4">
             
             {/* Unified Hotline */}
-            <div className="p-6 bg-stone-950 border border-stone-850 rounded-2xl flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
+            <div className="p-6 bg-white border border-stone-200 rounded-2xl flex items-start gap-4 shadow-xs">
+              <div className="w-12 h-12 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-600 shrink-0">
                 <Phone className="w-6 h-6" />
               </div>
               <div>
-                <span className="text-xs font-semibold text-stone-400 uppercase tracking-wider block">
+                <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider block">
                   {t.contact.hotline}
                 </span>
-                <span className="text-lg font-mono font-bold text-stone-100 block mt-1">
+                <span className="text-lg font-mono font-bold text-stone-900 block mt-1">
                   9200 44889
                 </span>
                 <span className="text-xs text-stone-500 block mt-0.5">
@@ -69,15 +69,15 @@ export const ContactSection: React.FC = () => {
             </div>
 
             {/* Email Support */}
-            <div className="p-6 bg-stone-950 border border-stone-850 rounded-2xl flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-400 shrink-0">
+            <div className="p-6 bg-white border border-stone-200 rounded-2xl flex items-start gap-4 shadow-xs">
+              <div className="w-12 h-12 rounded-xl bg-orange-50 border border-orange-200 flex items-center justify-center text-orange-600 shrink-0">
                 <Mail className="w-6 h-6" />
               </div>
               <div>
-                <span className="text-xs font-semibold text-stone-400 uppercase tracking-wider block">
+                <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider block">
                   {t.contact.email}
                 </span>
-                <span className="text-sm font-mono font-bold text-stone-200 block mt-1">
+                <span className="text-sm font-mono font-bold text-stone-800 block mt-1">
                   care@sizzleandsmoke-grill.com
                 </span>
                 <span className="text-xs text-stone-500 block mt-0.5">
@@ -87,15 +87,15 @@ export const ContactSection: React.FC = () => {
             </div>
 
             {/* Catering & Events */}
-            <div className="p-6 bg-stone-950 border border-stone-850 rounded-2xl flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-amber-600/10 border border-amber-600/30 flex items-center justify-center text-amber-300 shrink-0">
+            <div className="p-6 bg-white border border-stone-200 rounded-2xl flex items-start gap-4 shadow-xs">
+              <div className="w-12 h-12 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700 shrink-0">
                 <PartyPopper className="w-6 h-6" />
               </div>
               <div>
-                <span className="text-xs font-semibold text-stone-400 uppercase tracking-wider block">
+                <span className="text-xs font-semibold text-stone-500 uppercase tracking-wider block">
                   {t.contact.catering}
                 </span>
-                <span className="text-sm font-mono font-bold text-stone-200 block mt-1">
+                <span className="text-sm font-mono font-bold text-stone-800 block mt-1">
                   catering@sizzleandsmoke-grill.com
                 </span>
                 <span className="text-xs text-stone-500 block mt-0.5">
@@ -112,10 +112,10 @@ export const ContactSection: React.FC = () => {
           </div>
 
           {/* Right 7 Columns: Message Form */}
-          <div className="lg:col-span-7 bg-stone-950 border border-stone-850 rounded-3xl p-6 sm:p-8">
+          <div className="lg:col-span-7 bg-white border border-stone-200 rounded-3xl p-6 sm:p-8 shadow-xs">
             {submitted && (
-              <div className="mb-6 p-4 bg-emerald-950/40 border border-emerald-500/40 rounded-2xl text-emerald-200 text-xs flex items-center gap-3 animate-fade-in">
-                <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+              <div className="mb-6 p-4 bg-emerald-50 border border-emerald-300 rounded-2xl text-emerald-800 text-xs flex items-center gap-3 animate-fade-in">
+                <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
                 <span>{t.contact.messageSent}</span>
               </div>
             )}
@@ -123,7 +123,7 @@ export const ContactSection: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-xs font-bold text-stone-400 block mb-1.5">
+                  <label className="text-xs font-bold text-stone-600 block mb-1.5">
                     {t.contact.formName}
                   </label>
                   <input
@@ -131,13 +131,13 @@ export const ContactSection: React.FC = () => {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder={language === 'ar' ? 'محمد العلي' : 'Fahad Al-Ali'}
-                    className="w-full px-3.5 py-2.5 bg-stone-900 border border-stone-800 rounded-xl text-xs text-stone-200 focus:outline-none focus:border-amber-500"
+                    className="w-full px-3.5 py-2.5 bg-stone-50 border border-stone-200 rounded-xl text-xs text-stone-800 focus:outline-none focus:border-amber-500 shadow-xs"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="text-xs font-bold text-stone-400 block mb-1.5">
+                  <label className="text-xs font-bold text-stone-600 block mb-1.5">
                     {t.contact.formPhone}
                   </label>
                   <input
@@ -145,20 +145,20 @@ export const ContactSection: React.FC = () => {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="+966 5x xxx xxxx"
-                    className="w-full px-3.5 py-2.5 bg-stone-900 border border-stone-800 rounded-xl text-xs text-stone-200 focus:outline-none focus:border-amber-500 font-mono"
+                    className="w-full px-3.5 py-2.5 bg-stone-50 border border-stone-200 rounded-xl text-xs text-stone-800 focus:outline-none focus:border-amber-500 font-mono shadow-xs"
                     required
                   />
                 </div>
               </div>
 
               <div>
-                <label className="text-xs font-bold text-stone-400 block mb-1.5">
+                <label className="text-xs font-bold text-stone-600 block mb-1.5">
                   {t.contact.formSubject}
                 </label>
                 <select
                   value={subject}
                   onChange={(e) => setSubject(e.target.value)}
-                  className="w-full px-3.5 py-2.5 bg-stone-900 border border-stone-800 rounded-xl text-xs text-stone-200 focus:outline-none focus:border-amber-500"
+                  className="w-full px-3.5 py-2.5 bg-stone-50 border border-stone-200 rounded-xl text-xs text-stone-800 focus:outline-none focus:border-amber-500 shadow-xs"
                 >
                   <option value="general">{t.contact.formSubjectGeneral}</option>
                   <option value="catering">{t.contact.formSubjectCatering}</option>
@@ -167,7 +167,7 @@ export const ContactSection: React.FC = () => {
               </div>
 
               <div>
-                <label className="text-xs font-bold text-stone-400 block mb-1.5">
+                <label className="text-xs font-bold text-stone-600 block mb-1.5">
                   {t.contact.formMessage}
                 </label>
                 <textarea
@@ -175,13 +175,13 @@ export const ContactSection: React.FC = () => {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder={language === 'ar' ? 'اكتب رسالتك أو استفسارك هنا...' : 'Write your inquiry or request here...'}
-                  className="w-full px-3.5 py-2.5 bg-stone-900 border border-stone-800 rounded-xl text-xs text-stone-200 focus:outline-none focus:border-amber-500 resize-none"
+                  className="w-full px-3.5 py-2.5 bg-stone-50 border border-stone-200 rounded-xl text-xs text-stone-800 focus:outline-none focus:border-amber-500 resize-none shadow-xs"
                   required
                 />
               </div>
 
               {error && (
-                <div className="p-3 bg-red-950/40 border border-red-800/40 rounded-xl text-xs text-red-300 flex items-center gap-2">
+                <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-xs text-red-700 flex items-center gap-2">
                   <AlertCircle className="w-4 h-4 shrink-0" />
                   <span>{error}</span>
                 </div>
@@ -189,7 +189,7 @@ export const ContactSection: React.FC = () => {
 
               <button
                 type="submit"
-                className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-stone-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer shadow-lg shadow-amber-500/20"
+                className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md shadow-amber-500/20"
               >
                 <Send className="w-4 h-4" />
                 <span>{t.contact.sendMessage}</span>
